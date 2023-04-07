@@ -7,11 +7,13 @@
 
 ### On Ubuntu 22.04
 
-```bash
-# install libvoikko
-sudo apt -y install -y voikko-fi python-libvoikko
+_Tested on a **totally fresh** Vagrant install of Ubuntu 22.04. You probably already have some or all of these installed._
 
-# install click
+```bash
+# Install the prerequisites
+sudo apt update
+sudo apt install pip python-is-python3
+sudo apt -y install -y voikko-fi python-libvoikko
 pip install click
 
 # clone the repo and run the command!
