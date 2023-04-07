@@ -1,5 +1,8 @@
 # finstem - simple tool for command-line Finnish stemming
 
+![image](https://user-images.githubusercontent.com/53230903/230614454-e26fb4e7-a881-46c9-ad65-40f90872d65e.png)
+
+
 ## Quickstart
 
 ### On Ubuntu 22.04
@@ -21,7 +24,7 @@ python finstem.py 'kissa' 'kissat' 'anteeksi' 'peter'
 
 ## Advanced
 
-### Passing a list of words
+### Passing a list of words in a text file
 
 ```bash
 echo 'sana' > words.txt
@@ -30,3 +33,6 @@ echo 'kirjoja' >> words.txt
 
 # Pass each line as an argument to finstem.py
 cat words.txt | xargs -n 1 python finstem.py
+```
+
+![image](https://user-images.githubusercontent.com/53230903/230614650-c8195ecd-4091-491e-b5cb-d3d6740386bb.png)
