@@ -39,3 +39,14 @@ cat words.txt | xargs -n 1 python finstem.py
 
 ![image](https://user-images.githubusercontent.com/53230903/230723659-e016d3be-77ed-4a2b-9ce0-a3fb16ef10a0.png)
 
+### Interactive mode
+
+_Requires [fzf](https://github.com/junegunn/fzf)._
+
+```bash
+echo '' | fzf --print-query \
+   --preview-window='bottom:50%' \
+   --preview 'python finstem.py {q}'
+```
+
+![](preview-mode.gif)
