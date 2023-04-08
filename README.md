@@ -50,3 +50,12 @@ echo '' | fzf --print-query \
 ```
 
 ![](preview-mode.gif)
+
+#### For use with [`finfreq10k`](https://ankiweb.net/shared/info/1149950470) when reading a book
+
+`finfreq10k` is an Anki deck containing the 10,0000 most common Anki words in
+order, made by yours truly. Using it in combination with `finstem` creates a
+powerful way to target your vocabulary practice to the words you have actually
+read that day.
+
+![](finstem-finfreq10k.gif)
