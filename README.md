@@ -1,6 +1,6 @@
 # finstem - simple tool for command-line Finnish stemming
 
-![image](https://user-images.githubusercontent.com/53230903/230614454-e26fb4e7-a881-46c9-ad65-40f90872d65e.png)
+![image](https://user-images.githubusercontent.com/53230903/230723549-8f49bc01-6e96-4047-8343-0facb7fedf4f.png)
 
 
 ## Quickstart
@@ -37,4 +37,5 @@ echo 'kirjoja' >> words.txt
 cat words.txt | xargs -n 1 python finstem.py
 ```
 
-![image](https://user-images.githubusercontent.com/53230903/230614650-c8195ecd-4091-491e-b5cb-d3d6740386bb.png)
+![image](https://user-images.githubusercontent.com/53230903/230723659-e016d3be-77ed-4a2b-9ce0-a3fb16ef10a0.png)
+
