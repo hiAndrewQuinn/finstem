@@ -5,23 +5,34 @@ v = libvoikko.Voikko("fi")
 
 @click.command()
 @click.argument('word', nargs=-1, type=click.STRING)
-def print_base(word):
+# Add a click option to suppress Wiktionary entries.
+@click.option('-N', '--no-wiktionary', is_flag=True, help="Suppress Wiktionary entries.")
+def print_base(word, no_wiktionary):
     """Analyze word.
 
     WORD is a Finnish word which you want the base or 'sanakirja' form of.
     You can pass as many word as you want."""
     for w in word:
-        analysis = v.analyze(w)
-        if not analysis:
+        unique_baseforms = set()
+        for a in v.analyze(w):
+            unique_baseforms.add(a['BASEFORM'])
+        if len(unique_baseforms) == 0:
             click.echo(click.style(f"{w:20} -> Not found", fg='red'))
-        elif len(analysis) == 1:
-                click.echo(click.style(f"{w:20} -> {analysis[0]['BASEFORM']:20}", fg='green'))
+            continue
+        elif len(unique_baseforms) == 1:
+            color = 'green'
         else:
-            # Print the first one with the word, the rest without
-            click.echo(click.style(f"{w:20} -> {analysis[0]['BASEFORM']:20}", fg='yellow'))
-            for a in analysis[1:]:
-                click.echo(click.style((" " * 20) + f" -> {a['BASEFORM']:20}", fg='yellow'))
+            color = 'yellow'
 
+        first_entry = True
+        for a in unique_baseforms:
+            if not no_wiktionary:
+                wiktionary_entry = f"https://en.wiktionary.org/wiki/{a}#Finnish"
+            else:
+                wiktionary_entry = ""
+            w = w if first_entry else ""
+            click.echo(click.style(f"{w:20} -> {a:15} {wiktionary_entry}", fg=color))
+            first_entry = False
 
 if __name__ == '__main__':
     print_base()
