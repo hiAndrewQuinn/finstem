@@ -49,6 +49,8 @@ echo '' | fzf --print-query \
    --preview 'python finstem.py {q}'
 ```
 
+If you don't feel like typing out all that, just run `finstem-interactive.sh`.
+
 ![](preview-mode.gif)
 
 #### For use with [`finfreq10k`](https://ankiweb.net/shared/info/1149950470) when reading a book
