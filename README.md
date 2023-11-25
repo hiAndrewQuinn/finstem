@@ -1,6 +1,6 @@
 # finstem - simple tool for command-line Finnish stemming
 
-![image](https://user-images.githubusercontent.com/53230903/230723549-8f49bc01-6e96-4047-8343-0facb7fedf4f.png)
+![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/dfe9b9cc-3ae6-4eef-b6ac-75feea11eb9f)
 
 
 ## Quickstart
@@ -11,18 +11,52 @@ _Tested on a **totally fresh** Vagrant install of Ubuntu 22.04. You probably alr
 
 ```bash
 # Install the prerequisites
-sudo apt update
-sudo apt install pip python-is-python3
-sudo apt -y install -y voikko-fi python-libvoikko
-pip install click
+yes | sudo apt update
+yes | sudo apt install pip python-is-python3
+yes | sudo apt install voikko-fi python-libvoikko python3-click
 
 # clone the repo and run the command!
 git clone https://github.com/hiAndrewQuinn/finstem
 cd finstem
 
 python finstem.py --help
-python finstem.py 'kissa' 'kissat' 'anteeksi' 'peter'
+python finstem.py 'Näin' 'tervetuloa' 'kiltti' 'kissa' 'Nimeni' 'on' 'Jeff'
 ```
+
+## For scripters
+
+`finstem` supports (experimental) CSV, TSV and JSON formats. 
+
+### CSV format example
+
+```bash
+python finstem.py 'Näin' 'tervetuloa' 'kiltti' 'kissa' '.' 'Nimeni' 'on' 'Jeff' --format CSV | csvlook
+```
+
+![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/95b28509-b134-4915-a781-5d9eb1365ea8)
+
+### TSV format example
+
+```bash
+python finstem.py 'Näin' 'tervetuloa' 'kiltti' 'kissa' '.' 'Nimeni' 'on' 'Jeff' --format TSV | awk '{print $3 " <~> " $2 " <~> " $1}'
+```
+
+![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/4d2304a9-1848-4d85-af48-cdf2bc75c142)
+
+
+### JSON format example
+
+```bash
+python finstem.py 'hyvää' 'huomenta' --format JSON | \
+while IFS= read -r line; do
+    echo "$line" | jq .
+done
+```
+
+![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/2784dd38-af83-4c11-bc5c-5b12c9ba5580)
+
+
+Use with caution. I haven't used proper libraries for these yet.
 
 ## Advanced
 
