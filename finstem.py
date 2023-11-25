@@ -29,7 +29,7 @@ def print_base_DEPRECATED(words, no_wiktionary, no_color):
                 wiktionary_entry = f"https://en.wiktionary.org/wiki/{a}#Finnish"
             else:
                 wiktionary_entry = ""
-            w = w if first_entry else ""
+            w = w if first_entry or is_thick else ""
             click.echo(
                 click.style(f"{w:20} -> {a:15} {wiktionary_entry}", fg=color)
                 if not no_color
@@ -75,7 +75,14 @@ def get_baseforms_of_words(words: list) -> list:
     is_flag=True,
     help='(Only for the "nice" format.) Suppress color output. Useful for scripting.',
 )
-def main(words, format, no_wiktionary, no_color):
+@click.option(
+    "--thick",
+    is_flag=True,
+    help="(Pretty only.) Print the word on every line, even if there are multiple possible dictionary forms.",
+)
+def main(words, format, no_wiktionary, no_color, thick):
+    global is_thick
+    is_thick = thick or (format == "CSV" or format == "TSV" or format == "JSON")
     if format == "CSV":
         return print_csv(words, no_wiktionary)
     elif format == "TSV":
@@ -105,7 +112,7 @@ def print_csv(words, no_wiktionary):
                 wiktionary_entry = f"https://en.wiktionary.org/wiki/{a}#Finnish"
             else:
                 wiktionary_entry = ""
-            w = w if first_entry else ""
+            w = w if first_entry or is_thick else ""
             click.echo(f"{w},{a},{wiktionary_entry}")
             first_entry = False
 
@@ -129,7 +136,7 @@ def print_tsv(words, no_wiktionary):
                 wiktionary_entry = f"https://en.wiktionary.org/wiki/{a}#Finnish"
             else:
                 wiktionary_entry = ""
-            w = w if first_entry else ""
+            w = w if first_entry or is_thick else ""
             click.echo(f"{w}\t{a}\t{wiktionary_entry}")
             first_entry = False
 
@@ -152,7 +159,7 @@ def print_json(words, no_wiktionary):
                 wiktionary_entry = f"https://en.wiktionary.org/wiki/{a}#Finnish"
             else:
                 wiktionary_entry = ""
-            w = w if first_entry else ""
+            w = w if first_entry or is_thick else ""
             click.echo(
                 f'{{"word": "{w}", "baseforms": ["{a}"], "wiktionary": "{wiktionary_entry}"}}'
             )
@@ -181,7 +188,7 @@ def print_base(words, no_wiktionary, no_color):
                 wiktionary_entry = f"https://en.wiktionary.org/wiki/{a}#Finnish"
             else:
                 wiktionary_entry = ""
-            w = w if first_entry else ""
+            w = w if first_entry or is_thick else ""
             click.echo(
                 click.style(f"{w:20} -> {a:15} {wiktionary_entry}", fg=color)
                 if not no_color
