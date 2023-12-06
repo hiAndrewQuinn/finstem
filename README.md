@@ -2,6 +2,8 @@
 
 ![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/9d0eef09-6d25-4519-9dab-8773edc555a8)
 
+![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/004fbbc1-3088-4efd-a484-0b04f6db309b)
+
 ![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/093efe66-3688-4358-a5b1-6e022a5f79f1)
 
 It can even run its own tiny REPL! See **"Interactive mode"** below.
