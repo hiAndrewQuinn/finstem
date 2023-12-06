@@ -7,4 +7,4 @@ fi
 
 echo '' | fzf --print-query \
 	--preview-window='bottom:50%' \
-	--preview 'python finstem.py {q}'
+	--preview "echo {q} | tr ' ' '\n' | xargs -I _ python finstem.py _"

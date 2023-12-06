@@ -15,8 +15,7 @@ def print_base_DEPRECATED(words, no_wiktionary, no_color):
             click.echo(
                 click.style(f"{w:20} -> Unknown", fg="red")
                 if not no_color
-                else f"{w:20} -> Unknown"
-            )
+                else f"{w:20} -> Unknown", color=True)
             continue
         elif len(unique_baseforms) == 1:
             color = "green"
@@ -33,8 +32,7 @@ def print_base_DEPRECATED(words, no_wiktionary, no_color):
             click.echo(
                 click.style(f"{w:20} -> {a:15} {wiktionary_entry}", fg=color)
                 if not no_color
-                else f"{w:20} -> {a:15} {wiktionary_entry}"
-            )
+                else f"{w:20} -> {a:15} {wiktionary_entry}", color=True)
             first_entry = False
 
 
@@ -101,11 +99,11 @@ def strip_punctuation(words):
 
 def print_csv(words, no_wiktionary):
     """Print baseforms in CSV format."""
-    click.echo("word,possible_baseform,wiktionary")
+    click.echo("word,possible_baseform,wiktionary", color=True)
     for w in words:
         unique_baseforms = get_baseforms_of_word(w)
         if len(unique_baseforms) == 0:
-            click.echo(f"{w},Unknown,")
+            click.echo(f"{w},Unknown,", color=True)
             continue
         elif len(unique_baseforms) == 1:
             color = "green"
@@ -119,17 +117,17 @@ def print_csv(words, no_wiktionary):
             else:
                 wiktionary_entry = ""
             w = w if first_entry or is_thick else ""
-            click.echo(f"{w},{a},{wiktionary_entry}")
+            click.echo(f"{w},{a},{wiktionary_entry}", color=True)
             first_entry = False
 
 
 def print_tsv(words, no_wiktionary):
     """Print baseforms in TSV format."""
-    click.echo("word\tpossible_baseform\twiktionary")
+    click.echo("word\tpossible_baseform\twiktionary", color=True)
     for w in words:
         unique_baseforms = get_baseforms_of_word(w)
         if len(unique_baseforms) == 0:
-            click.echo(f"{w}\tUnknown")
+            click.echo(f"{w}\tUnknown", color=True)
             continue
         elif len(unique_baseforms) == 1:
             color = "green"
@@ -143,7 +141,7 @@ def print_tsv(words, no_wiktionary):
             else:
                 wiktionary_entry = ""
             w = w if first_entry or is_thick else ""
-            click.echo(f"{w}\t{a}\t{wiktionary_entry}")
+            click.echo(f"{w}\t{a}\t{wiktionary_entry}", color=True)
             first_entry = False
 
 
@@ -152,7 +150,7 @@ def print_json(words, no_wiktionary):
     for w in words:
         unique_baseforms = get_baseforms_of_word(w)
         if len(unique_baseforms) == 0:
-            click.echo(f'{{"word": "{w}", "baseforms": []}}')
+            click.echo(f'{{"word": "{w}", "baseforms": []}}', color=True)
             continue
         elif len(unique_baseforms) == 1:
             color = "green"
@@ -167,8 +165,7 @@ def print_json(words, no_wiktionary):
                 wiktionary_entry = ""
             w = w if first_entry or is_thick else ""
             click.echo(
-                f'{{"word": "{w}", "baseforms": ["{a}"], "wiktionary": "{wiktionary_entry}"}}'
-            )
+                f'{{"word": "{w}", "baseforms": ["{a}"], "wiktionary": "{wiktionary_entry}"}}', color=True)
             first_entry = False
 
 
@@ -180,8 +177,7 @@ def print_base(words, no_wiktionary, no_color):
             click.echo(
                 click.style(f"{w:20} -> Unknown", fg="red")
                 if not no_color
-                else f"{w:20} -> Unknown"
-            )
+                else f"{w:20} -> Unknown", color=True)
             continue
         elif len(unique_baseforms) == 1:
             color = "green"
@@ -198,8 +194,7 @@ def print_base(words, no_wiktionary, no_color):
             click.echo(
                 click.style(f"{w:20} -> {a:15} {wiktionary_entry}", fg=color)
                 if not no_color
-                else f"{w:20} -> {a:15} {wiktionary_entry}"
-            )
+                else f"{w:20} -> {a:15} {wiktionary_entry}", color=True)
             first_entry = False
 
 
