@@ -81,8 +81,10 @@ def get_baseforms_of_words(words: list) -> list:
     help="(Pretty only.) Print the word on every line, even if there are multiple possible dictionary forms.",
 )
 def main(words, format, no_wiktionary, no_color, thick):
+    words = strip_punctuation(words)
     global is_thick
-    is_thick = thick or (format == "CSV" or format == "TSV" or format == "JSON")
+    is_thick = thick or (format == "CSV" or format ==
+                         "TSV" or format == "JSON")
     if format == "CSV":
         return print_csv(words, no_wiktionary)
     elif format == "TSV":
@@ -91,6 +93,10 @@ def main(words, format, no_wiktionary, no_color, thick):
         return print_json(words, no_wiktionary)
     else:
         return print_base(words, no_wiktionary, no_color)
+
+
+def strip_punctuation(words):
+    return [word.strip(".,;:!?") for word in words]
 
 
 def print_csv(words, no_wiktionary):
