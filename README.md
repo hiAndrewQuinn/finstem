@@ -1,7 +1,10 @@
 # finstem - simple tool for command-line Finnish stemming
 
-![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/dfe9b9cc-3ae6-4eef-b6ac-75feea11eb9f)
+![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/9d0eef09-6d25-4519-9dab-8773edc555a8)
 
+![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/093efe66-3688-4358-a5b1-6e022a5f79f1)
+
+It can even run its own tiny REPL! See **"Interactive mode"** below.
 
 ## Quickstart
 
