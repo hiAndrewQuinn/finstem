@@ -1,12 +1,19 @@
 # finstem - simple tool for command-line Finnish stemming
 
+Stems Finnish words. Takes any kinds of words you can throw at it. Even has its own tiny REPL!
+
 ![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/9d0eef09-6d25-4519-9dab-8773edc555a8)
 
-![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/004fbbc1-3088-4efd-a484-0b04f6db309b)
+📹 Video - silent install, 2023.12.07
 
-![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/093efe66-3688-4358-a5b1-6e022a5f79f1)
+[output-fast.webm](https://github.com/hiAndrewQuinn/finstem/assets/53230903/b9f5bb51-4a0d-4189-9876-14ca4b50da0e)
 
-It can even run its own tiny REPL! See **"Interactive mode"** below.
+The above is 10x to give a feel for how the commands work. 
+
+Normal-speed video: https://youtu.be/85qwsrGdwZs
+
+
+Normal-speed video: 
 
 ## Quickstart
 
@@ -91,7 +98,6 @@ echo '' | fzf --print-query \
 
 If you don't feel like typing out all that, just run `finstem-interactive.sh`.
 
-![](preview-mode.gif)
 
 #### For use with [`finfreq10k`](https://ankiweb.net/shared/info/1149950470) when reading a book
 
@@ -100,4 +106,10 @@ order, made by yours truly. Using it in combination with `finstem` creates a
 powerful way to target your vocabulary practice to the words you have actually
 read that day.
 
-![](finstem-finfreq10k.gif)
+# Other screenshots
+
+
+![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/004fbbc1-3088-4efd-a484-0b04f6db309b)
+
+![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/093efe66-3688-4358-a5b1-6e022a5f79f1)
+
