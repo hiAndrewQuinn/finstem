@@ -84,8 +84,9 @@ _Requires [fzf](https://github.com/junegunn/fzf)._
 
 ```bash
 echo '' | fzf --print-query \
-          --preview-window='bottom:50%' \
-          --preview 'echo {q} | tr \' \' \'\n\' | xargs -I _ python finstem.py _'
+	--preview-window='bottom:50%' \
+	--preview "echo {q} | tr ' ' '\n' | xargs -I _ python finstem.py _" \
+	--bind "enter:execute(echo {q} | tr ' ' '\n' | xargs -I _ python finstem.py _)+abort"
 ```
 
 If you don't feel like typing out all that, just run `finstem-interactive.sh`.

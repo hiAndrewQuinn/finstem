@@ -7,4 +7,5 @@ fi
 
 echo '' | fzf --print-query \
 	--preview-window='bottom:50%' \
-	--preview "echo {q} | tr ' ' '\n' | xargs -I _ python finstem.py _"
+	--preview "echo {q} | tr ' ' '\n' | xargs -I _ python finstem.py _" \
+	--bind "enter:execute(echo {q} | tr ' ' '\n' | xargs -I _ python finstem.py _)+abort"
