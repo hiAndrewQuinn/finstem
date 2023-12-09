@@ -94,7 +94,7 @@ def main(words, format, no_wiktionary, no_color, thick):
 
 
 def strip_punctuation(words):
-    return [word.strip(".,;:!?") for word in words]
+    return [word.strip(".,;:!?*`()[]{}") for word in words]
 
 
 def print_csv(words, no_wiktionary):
