@@ -4,7 +4,7 @@ Stems Finnish words. Takes any kinds of words you can throw at it. Even has its 
 
 ![image](https://github.com/hiAndrewQuinn/finstem/assets/53230903/9d0eef09-6d25-4519-9dab-8773edc555a8)
 
-📹 Video - silent install, 2023.12.07
+## 📹 Video - silent install, 2023.12.07
 
 [output-fast.webm](https://github.com/hiAndrewQuinn/finstem/assets/53230903/b9f5bb51-4a0d-4189-9876-14ca4b50da0e)
 
